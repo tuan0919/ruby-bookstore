@@ -13,7 +13,7 @@ development:
   <<: *default
   database: bookstore
   username: bookstore
-  password: abcd@1234
-  host: localhost
-  port: 5432
+  password: 123
+  host: 192.168.122.33
+  port: 6432
   

@@ -23,10 +23,12 @@ module Bookstore
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.autoload_paths += %W(
+    config.autoload_paths += %W[
       #{config.root}/app/models/dto
       #{config.root}/app/models/dto/request
       #{config.root}/app/models/dto/response
-    )
+      #{config.root}/app/exceptions
+      #{config.root}/app/services
+    ]
   end
 end

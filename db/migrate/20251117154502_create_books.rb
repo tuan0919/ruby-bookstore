@@ -1,5 +1,6 @@
 class CreateBooks < ActiveRecord::Migration[8.1]
-def change
+def up
+    drop_table :books, if_exists: true
     create_table :books do |t|
       t.string :title
       t.string :publisher
@@ -21,5 +22,9 @@ def change
       t.references :category, foreign_key: true
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :books, if_exists: true
   end
 end

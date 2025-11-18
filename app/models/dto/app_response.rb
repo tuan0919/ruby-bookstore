@@ -6,12 +6,4 @@ class AppResponse
     @message = message
     @result = result
   end
-
-  def as_json(_options = {})
-    {
-      code: code,
-      message: message,
-      result: result
-    }.compact
-  end
 end

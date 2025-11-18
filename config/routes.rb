@@ -11,5 +11,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :books, only: %i[index show create]
+  namespace :api do
+    resources :books, only: %i[index show create] do
+      get :search, on: :collection
+      get :cards, on: :collection
+      get :top_weekly, on: :collection
+    end
+    resources :categories, only: %i[index show]
+    resources :shop, only: %i[index]
+    resources :carts, only: %i[index]
+  end
 end
