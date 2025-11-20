@@ -3,10 +3,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   # Cho phép tất cả các môi trường (production/development)
   allow do
-    origins '*' 
-
-    # Bạn có thể dùng '*' nếu muốn cho phép mọi nguồn gốc (NHƯNG KHÔNG NÊN DÙNG TRONG PRODUCTION)
-    # origins '*' 
+    origins 'http://localhost:5173, http://localhost:80' 
 
     # Cho phép các methods HTTP cơ bản
     resource '*',
