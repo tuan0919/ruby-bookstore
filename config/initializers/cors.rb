@@ -3,8 +3,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   # Cho phép tất cả các môi trường (production/development)
   allow do
-    # 🚨 QUAN TRỌNG: Thay thế bằng địa chỉ frontend của bạn
-    origins 'http://localhost:5173' 
+    origins '*' 
 
     # Bạn có thể dùng '*' nếu muốn cho phép mọi nguồn gốc (NHƯNG KHÔNG NÊN DÙNG TRONG PRODUCTION)
     # origins '*' 

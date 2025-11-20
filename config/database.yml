@@ -10,10 +10,25 @@ default: &default
   timeout: 5000
 
 production:
-  <<: *default
-  database: bookstore
-  username: bookstore
-  password: 123
-  host: 192.168.122.33
-  port: 6432
-  
+  primary: &primary_production
+    <<: *default
+    database: bookstore
+    username: bookstore
+    password: 123
+    host: 192.168.122.33
+    port: 6432
+
+# Thêm cấu hình cho Cable (Solid Cable)
+  cable:
+    <<: *primary_production
+    migrations_paths: db/cable_migrate
+
+  # Rails 8 cũng thường yêu cầu Queue (Solid Queue) và Cache (Solid Cache)
+  # Nên thêm luôn để tránh lỗi tiếp theo
+  queue:
+    <<: *primary_production
+    migrations_paths: db/queue_migrate
+    
+  cache:
+    <<: *primary_production
+    migrations_paths: db/cache_migrate
